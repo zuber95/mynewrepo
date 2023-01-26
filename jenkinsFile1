@@ -32,26 +32,7 @@ pipeline
              
         }
         
-           stage('ContinuousTesting')
-        {
-            steps
-            {
-                git 'https://github.com/intelliqittrainings/FunctionalTesting.git'
-                
-                 sh 'java -jar /var/lib/jenkins/workspace/DeclarativePipeline/testing.jar'
-            }
-             
-        }
-        
-           stage('ContinuousDelivery')
-        {
-            steps
-            {
-                        deploy adapters: [tomcat9(credentialsId: 'd6213dd5-94ba-43a9-89e9-3a3ff2d6c69c', path: '', url: 'http://172.31.3.73:8080')], contextPath: 'prod', war: '**/*.war'
-
-            }
-             
-        }
+     
         
         
     
